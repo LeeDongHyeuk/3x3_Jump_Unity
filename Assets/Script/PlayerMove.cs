@@ -6,15 +6,9 @@ public class PlayerMove : MonoBehaviour
 {
     public float maxSpeed;
     public float jumpPower;
-    public GameObject obj;
-
-    public int[] coinX = { -4, 0, 4 };
-    public float[] coinY = { -2.5f, 1.5f, 5.5f };
-    public int xIndex;
-    public int yIndex;
 
     private AudioSource mAudioSource = null;
-    public AudioClip CoinSound = null;
+    public AudioClip JumpSound = null;
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -22,9 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        xIndex = Random.Range(0, 3);
-        yIndex = Random.Range(0, 3);
-        Instantiate(obj, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
+ 
     }
 
     void Awake()
@@ -42,6 +34,11 @@ public class PlayerMove : MonoBehaviour
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
+
+            if (mAudioSource != null && JumpSound != null)
+            {
+                mAudioSource.PlayOneShot(JumpSound);
+            }
         }
 
         // Stop Speed
@@ -83,22 +80,6 @@ public class PlayerMove : MonoBehaviour
                 if (rayHit.distance < 0.5f)
                     anim.SetBool("isJumping", false);
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag.Equals("Coin"))
-        {
-            if (mAudioSource != null && CoinSound != null)
-            {
-                mAudioSource.PlayOneShot(CoinSound);
-            }
-            Destroy(other.gameObject);
-
-            xIndex = Random.Range(0, 3);
-            yIndex = Random.Range(0, 3);
-            Instantiate(obj, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
         }
     }
 }
