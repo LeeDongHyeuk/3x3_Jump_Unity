@@ -153,7 +153,7 @@ public class ColorLight : MonoBehaviour
         xIdx = Random.Range(0, 3);
         xIdx2 = Random.Range(0, 2);
 
-        lights[xIdx, xIdx2].color = Color.yellow;
+        lights[xIdx, xIdx2].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
     }
 
     void XYellowLight2() // x줄에 랜덤으로 노란 불이 두 개 들어오는 함수
@@ -167,8 +167,8 @@ public class ColorLight : MonoBehaviour
         } while (xIdx1_1 == xIdx1_2);
 
 
-        lights[xIdx1_1, xIdx2_1].color = Color.yellow;
-        lights[xIdx1_2, xIdx2_2].color = Color.yellow;
+        lights[xIdx1_1, xIdx2_1].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
+        lights[xIdx1_2, xIdx2_2].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
     }
 
     void XRedLight1() // x줄에 노란 불이 한 개 들어오는 함수의 후속, 빨간 불로 바꾸고 그 줄에 가시를 올라오게 함
@@ -253,7 +253,7 @@ public class ColorLight : MonoBehaviour
         yIdx = Random.Range(3, 6);
         yIdx2 = Random.Range(0, 2);
 
-        lights[yIdx, yIdx2].color = Color.yellow;
+        lights[yIdx, yIdx2].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
     }
 
     void YYellowLight2() // y줄에 노란 불이 2개 들어오는 함수
@@ -266,8 +266,8 @@ public class ColorLight : MonoBehaviour
             yIdx2_2 = Random.Range(0, 2);
         } while (yIdx1_1 == yIdx1_2);
 
-        lights[yIdx1_1, yIdx2_1].color = Color.yellow;
-        lights[yIdx1_2, yIdx2_2].color = Color.yellow;
+        lights[yIdx1_1, yIdx2_1].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
+        lights[yIdx1_2, yIdx2_2].color = new Color(255 / 255f, 215 / 255f, 0 / 255f);
     }
 
     void YRedLight1() // y줄에 노란 불이 하나 들어오는 함수의 후속, 빨간 불로 바꾸고 그 줄에 가시가 올라오게 함
