@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float maxSpeed;
-    public float jumpPower;
+    public float maxSpeed; // 최고 속도
+    public float jumpPower; // 점프 파워
+    public GameObject player;
 
     private AudioSource mAudioSource = null;
     public AudioClip JumpSound = null;
@@ -13,11 +14,6 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator anim;
-
-    void Start()
-    {
- 
-    }
 
     void Awake()
     {
@@ -37,7 +33,7 @@ public class PlayerMove : MonoBehaviour
 
             if (mAudioSource != null && JumpSound != null)
             {
-                mAudioSource.PlayOneShot(JumpSound);
+                mAudioSource.PlayOneShot(JumpSound); // 점프 소리
             }
         }
 

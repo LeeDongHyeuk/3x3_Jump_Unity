@@ -350,6 +350,7 @@ MonoBehaviour:
   coin: {fileID: 7163986470412999959, guid: 6d15a0c474212c34e8036cc327f1668b, type: 3}
   text: {fileID: 1523229953}
   CoinSound: {fileID: 8300000, guid: 50dee191f1af3994c99e69c8c4e2c104, type: 3}
+  DieSound: {fileID: 8300000, guid: a5548be9a9e5a6d43adb6e184f7b96bb, type: 3}
 --- !u!81 &225992423
 AudioListener:
   m_ObjectHideFlags: 0
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4.5
   jumpPower: 25
+  player: {fileID: 225992416}
   JumpSound: {fileID: 8300000, guid: 311bde2d611c7744e9b87713df344dd4, type: 3}
 --- !u!114 &225992427
 MonoBehaviour:
@@ -497,7 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fcb33c79c5d384384404fec5b80724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 1513923686}
   lightX1_1: {fileID: 662855064}
   lightX1_2: {fileID: 1708793350}
   lightX2_1: {fileID: 759067040}
@@ -529,6 +530,14 @@ PrefabInstance:
     - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_Name
       value: Spikes5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -674,6 +683,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes9
       objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -720,6 +737,114 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+--- !u!1 &384021087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384021091}
+  - component: {fileID: 384021090}
+  - component: {fileID: 384021089}
+  - component: {fileID: 384021088}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Floor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &384021088
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384021087}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994}
+  m_EdgeRadius: 0
+--- !u!23 &384021089
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384021087}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &384021090
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384021087}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &384021091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384021087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: -13.38, z: -21.281288}
+  m_LocalScale: {x: 34.852352, y: 4.9544287, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437771458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
@@ -762,7 +887,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 070ad4920d2fcbc43940fe99bc6d6bec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1003,6 +1128,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes6
       objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -1059,6 +1192,14 @@ PrefabInstance:
     - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_Name
       value: Spikes3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1627,6 +1768,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes8
       objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1684,6 +1833,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes1
       objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4
@@ -1740,6 +1897,14 @@ PrefabInstance:
     - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_Name
       value: Spikes7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2558,6 +2723,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes2
       objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2919,6 +3092,14 @@ PrefabInstance:
     - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_Name
       value: Spikes4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409167938093776522, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298736687382802015, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8802271895287910313, guid: c9c0c7e06d366b244bc5164d5da7799b, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColorLight : MonoBehaviour
 {
+    // 신호등 오브젝트 받아오기
     public GameObject lightX1_1;
     public GameObject lightX1_2;
     public GameObject lightX2_1;
@@ -17,6 +18,7 @@ public class ColorLight : MonoBehaviour
     public GameObject lightY3_1;
     public GameObject lightY3_2;
 
+    // 신호등 오브젝트의 색상 변경을 위한 SpriteRenderer
     private SpriteRenderer lightX1_1_Color;
     private SpriteRenderer lightX1_2_Color;
     private SpriteRenderer lightX2_1_Color;
@@ -30,8 +32,9 @@ public class ColorLight : MonoBehaviour
     private SpriteRenderer lightY3_1_Color;
     private SpriteRenderer lightY3_2_Color;
 
-    private SpriteRenderer[,] lights = new SpriteRenderer[6, 2];
+    private SpriteRenderer[,] lights = new SpriteRenderer[6, 2]; // 신호등 배열 생성
 
+    // 가시 오브젝트 받아오기
     public GameObject spike1;
     public GameObject spike2;
     public GameObject spike3;
@@ -42,33 +45,34 @@ public class ColorLight : MonoBehaviour
     public GameObject spike8;
     public GameObject spike9;
 
-    private GameObject[,] spikes = new GameObject[3, 3];
+    private GameObject[,] spikes = new GameObject[3, 3]; // 가시 배열 생성
 
-    private int xIdx;
-    private int xIdx2;
-    private int yIdx;
-    private int yIdx2;
+    private int xIdx; // 가로 줄에서 하나만 켜질 경우의 인덱스
+    private int xIdx2; // 왼 또는 오를 위한 인덱스
+    private int yIdx; // 세로 줄에서 하나만 켜질 경우의 인덱스
+    private int yIdx2; // 위 또는 아래를 위한 인덱스
 
-    private int xIdx1_1;
-    private int xIdx1_2;
-    private int xIdx2_1;
-    private int xIdx2_2;
-    private int yIdx1_1;
-    private int yIdx1_2;
-    private int yIdx2_1;
-    private int yIdx2_2;
+    private int xIdx1_1; // 가로 줄에서 두 개가 켜질 경우의 첫 번째 인덱스
+    private int xIdx1_2; // 가로 줄에서 두 개가 켜질 경우의 두 번째 인덱스
+    private int xIdx2_1; // 첫 번째 인덱스의 왼 오를 정하는 인덱스
+    private int xIdx2_2; // 두 번째 인덱스의 왼 오를 정하는 인덱스
+    private int yIdx1_1; // 세로 줄에서 두 개가 켜질 경우의 첫 번째 인덱스
+    private int yIdx1_2; // 세로 줄에서 두 개가 켜질 경우의 첫 번째 인덱스
+    private int yIdx2_1; // 첫 번째 인덱스의 위 아래를 정하는 인덱스
+    private int yIdx2_2; // 첫 번째 인덱스의 위 아래를 정하는 인덱스
 
-    private float yellowTime = 1f;
-    private float redTime = 4.5f;
+    private float yellowTime = 1f; // 노란 불이 켜질 초
+    private float redTime = 4.5f; // 빨간 불이 켜질 초
 
-    private float xPos1 = 4.6f;
-    private float xPos2 = 0.6f;
-    private float xPos3 = -3.4f;
+    private float xPos1 = 4.6f; // 첫 번째 가로줄의 좌표
+    private float xPos2 = 0.6f; // 두 번째 가로줄의 좌표
+    private float xPos3 = -3.4f; // 세 번째 가로줄의 좌표
 
-    private float plusX = 0.8f;
+    private float plusX = 0.8f; // 좌표 조정을 위한 값
 
     void Start()
     {
+        // 신호등의 색깔 관련 컴포넌트 받아오기
         lightX1_1_Color = lightX1_1.GetComponent<SpriteRenderer>();
         lightX1_2_Color = lightX1_2.GetComponent<SpriteRenderer>();
         lightX2_1_Color = lightX2_1.GetComponent<SpriteRenderer>();
@@ -82,6 +86,7 @@ public class ColorLight : MonoBehaviour
         lightY3_1_Color = lightY3_1.GetComponent<SpriteRenderer>();
         lightY3_2_Color = lightY3_2.GetComponent<SpriteRenderer>();
 
+        // 배열에 신호등 색깔 관련 컴포넌트를 저장
         lights[0, 0] = lightX1_1_Color;
         lights[0, 1] = lightX1_2_Color;
         lights[1, 0] = lightX2_1_Color;
@@ -95,6 +100,7 @@ public class ColorLight : MonoBehaviour
         lights[5, 0] = lightY3_1_Color;
         lights[5, 1] = lightY3_2_Color;
 
+        // 가시 배열 저장
         spikes[0, 0] = spike1;
         spikes[0, 1] = spike2;
         spikes[0, 2] = spike3;
@@ -105,20 +111,15 @@ public class ColorLight : MonoBehaviour
         spikes[2, 1] = spike8;
         spikes[2, 2] = spike9;
 
-        GreenLight();
+        GreenLight(); // 전부 초록불로 바꾸는 함수
 
-        InvokeRepeating("RandomLights", 2f, 10f);
-    }
-
-    void Update()
-    {
-
+        InvokeRepeating("RandomLights", 2f, 10f); // 2초 뒤 RandomLights 함수 실행 10초 단위로 재호출
     }
 
     void RandomLights()
     {
-        int xMany = Random.Range(1, 3);
-        int yMany = Random.Range(1, 3);
+        int xMany = Random.Range(1, 3); // x줄에 들어올 신호등의 개수
+        int yMany = Random.Range(1, 3); // y줄에 들어올 신호등의 개수
 
         if (xMany == 1)
         {
@@ -144,10 +145,10 @@ public class ColorLight : MonoBehaviour
             Invoke("YRedLight2", redTime);
         }
 
-        Invoke("GreenLight", redTime + 3f);
+        Invoke("GreenLight", redTime + 3f); // 파란 불로 바꿔주는 함수
     }
 
-    void XYellowLight1()
+    void XYellowLight1() // x줄에 랜덤으로 노란 불이 한 개 들어오는 함수
     {
         xIdx = Random.Range(0, 3);
         xIdx2 = Random.Range(0, 2);
@@ -155,7 +156,7 @@ public class ColorLight : MonoBehaviour
         lights[xIdx, xIdx2].color = Color.yellow;
     }
 
-    void XYellowLight2()
+    void XYellowLight2() // x줄에 랜덤으로 노란 불이 두 개 들어오는 함수
     {
         do
         {
@@ -170,7 +171,7 @@ public class ColorLight : MonoBehaviour
         lights[xIdx1_2, xIdx2_2].color = Color.yellow;
     }
 
-    void XRedLight1()
+    void XRedLight1() // x줄에 노란 불이 한 개 들어오는 함수의 후속, 빨간 불로 바꾸고 그 줄에 가시를 올라오게 함
     {   
         switch(xIdx)
         {
@@ -197,7 +198,7 @@ public class ColorLight : MonoBehaviour
         lights[xIdx, xIdx2].color = Color.red;
     }
 
-    void XRedLight2()
+    void XRedLight2() // x줄에 노란 불이 2개 들어오는 함수의 후속, 빨간 불로 변하고 그 줄들에 가시가 올라옴
     {
         switch (xIdx1_1)
         {
@@ -247,7 +248,7 @@ public class ColorLight : MonoBehaviour
         lights[xIdx1_2, xIdx2_2].color = Color.red;
     }
 
-    void YYellowLight1()
+    void YYellowLight1() // y줄에 노란 불이 하나 들어오는 함수
     {
         yIdx = Random.Range(3, 6);
         yIdx2 = Random.Range(0, 2);
@@ -255,7 +256,7 @@ public class ColorLight : MonoBehaviour
         lights[yIdx, yIdx2].color = Color.yellow;
     }
 
-    void YYellowLight2()
+    void YYellowLight2() // y줄에 노란 불이 2개 들어오는 함수
     {
         do
         {
@@ -269,7 +270,7 @@ public class ColorLight : MonoBehaviour
         lights[yIdx1_2, yIdx2_2].color = Color.yellow;
     }
 
-    void YRedLight1()
+    void YRedLight1() // y줄에 노란 불이 하나 들어오는 함수의 후속, 빨간 불로 바꾸고 그 줄에 가시가 올라오게 함
     {
         switch (yIdx - 3)
         {
@@ -332,7 +333,7 @@ public class ColorLight : MonoBehaviour
         lights[yIdx, yIdx2].color = Color.red;
     }
 
-    void YRedLight2()
+    void YRedLight2() // y줄에 노란 불이 2개 들어오는 함수의 후속, 빨간 불로 바꾸고 그 줄들에 가시가 올라오게 함
     {
         switch (yIdx1_1 - 3)
         {
@@ -454,7 +455,7 @@ public class ColorLight : MonoBehaviour
         lights[yIdx1_2, yIdx2_2].color = Color.red;
     }
 
-    void GreenLight()
+    void GreenLight() // 전부 초록불로 바꾸고 가시가 내려가게 함
     {
         for (int i = 0; i < 6; i++)
         {
