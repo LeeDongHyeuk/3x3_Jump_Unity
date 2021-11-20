@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerPlay : MonoBehaviour
 {
-    public GameObject obj;
+    public GameObject coin;
     public Text text;
 
     private int[] coinX = { -4, 0, 4 };
@@ -24,7 +24,7 @@ public class PlayerPlay : MonoBehaviour
 
         xIndex = Random.Range(0, 3);
         yIndex = Random.Range(0, 3);
-        Instantiate(obj, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
+        Instantiate(coin, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
     }
 
     void Awake()
@@ -52,7 +52,7 @@ public class PlayerPlay : MonoBehaviour
 
             xIndex = Random.Range(0, 3);
             yIndex = Random.Range(0, 3);
-            Instantiate(obj, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
+            Instantiate(coin, new Vector2(coinX[xIndex], coinY[yIndex]), Quaternion.identity);
         }
     }
 }
