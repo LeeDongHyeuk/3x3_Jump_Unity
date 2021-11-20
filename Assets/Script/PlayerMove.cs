@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         mAudioSource = GetComponent<AudioSource>();
+        mAudioSource.volume = 0.2f;
     }
 
     void Update()

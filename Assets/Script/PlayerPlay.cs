@@ -32,6 +32,7 @@ public class PlayerPlay : MonoBehaviour
     void Awake()
     {
         mAudioSource = GetComponent<AudioSource>();
+        mAudioSource.volume = 0.2f;
     }
 
     // 코인과 캐릭터가 닿을 때
