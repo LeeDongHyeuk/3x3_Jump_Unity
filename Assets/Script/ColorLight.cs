@@ -472,13 +472,13 @@ public class ColorLight : MonoBehaviour
                 switch (i)
                 {
                     case 0:
-                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, xPos1);
+                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, -14);
                         break;
                     case 1:
-                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, xPos2);
+                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, -14);
                         break;
                     case 2:
-                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, xPos3);
+                        spikes[i, j].transform.position = new Vector2(spikes[i, j].transform.position.x, -14);
                         break;
                 }
             }
